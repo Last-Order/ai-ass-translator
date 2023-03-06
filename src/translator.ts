@@ -116,7 +116,7 @@ export default class Translator {
             if (!translatedDialogs) {
                 throw new Error("Cannot get translation from OpenAI.");
             }
-            await sleep(3200); // API Rate limit
+            await sleep(5000); // API Rate limit
             this.result.push(
                 ...translatedDialogs.map(
                     (dialog) => `${dialog.attributes},${dialog.dialogText}`
