@@ -1,0 +1,50 @@
+﻿[Script Info]
+; Original 1280x720(16:9)
+Title: Default SSA V4+ (ASS)
+ScriptType: v4.00+
+WrapStyle: 0
+PlayResX: 1280
+PlayResY: 720
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColor, SecondaryColor, OutlineColor, BackColor, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,HG丸ｺﾞｼｯｸM-PRO,54,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,2,1,10,10,10,0
+Style: Box,HG丸ｺﾞｼｯｸM-PRO,54,&HFFFFFFFF,&H000000FF,&H00FFFFFF,&H00FFFFFF,0,0,0,0,100,100,0,0,1,2,2,2,10,10,10,0
+Style: Rubi,HG丸ｺﾞｼｯｸM-PRO,24,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,2,1,10,10,10,0
+//
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:22.65,0:00:27.95,Default,,0000,0000,0000,,{\pos(184,598)\c&H00ffff&}(あかり)<その日も\N
+Dialogue: 0,0:00:22.65,0:00:27.95,Default,,0000,0000,0000,,{\pos(210,678)\c&H00ffff&}いつもと変わらない日だと思っていた>\N
+Dialogue: 0,0:00:29.52,0:00:36.52,Default,,0000,0000,0000,,{\pos(184,678)\c&H00ffff&}<３月頭の とある土曜日 午後８時21分>\N
+Dialogue: 0,0:00:38.67,0:00:46.34,Default,,0000,0000,0000,,{\pos(184,598)\c&H00ffff&}<和歌山県南方沖で\N
+Dialogue: 0,0:00:38.67,0:00:46.34,Default,,0000,0000,0000,,{\pos(210,678)\c&H00ffff&}マグニチュード8.9の巨大地震が発生｡・\N
+Dialogue: 0,0:00:46.34,0:00:53.34,Default,,0000,0000,0000,,{\pos(184,678)\c&H00ffff&}海は暴れ 街はうねり 私たちは知る>\N
+Dialogue: 0,0:00:58.70,0:01:00.64,Default,,0000,0000,0000,,{\pos(477,678)}(逃げ惑う声)\N
+Dialogue: 0,0:01:00.64,0:01:04.04,Default,,0000,0000,0000,,{\pos(210,598)\c&H00ffff&}<来なければいいと目を背けていた\N
+Dialogue: 0,0:01:00.64,0:01:04.04,Default,,0000,0000,0000,,{\pos(237,678)\c&H00ffff&}その時が…>\N
+Dialogue: 0,0:01:04.04,0:01:12.85,Default,,0000,0000,0000,,{\pos(504,678)}(地震の音)\N
+Dialogue: 0,0:01:12.85,0:01:16.32,Rubi,,0000,0000,0000,,{\pos(504,518)}たくみ\N
+Dialogue: 0,0:01:12.85,0:01:16.32,Default,,0000,0000,0000,,{\pos(477,598)}(巧海)地震？\N
+Dialogue: 0,0:01:12.85,0:01:16.32,Default,,0000,0000,0000,,{\pos(290,678)\c&H00ffff&}<ある日 突然 訪れることを>\N
+Dialogue: 0,0:01:16.32,0:01:18.32,Default,,0000,0000,0000,,{\pos(557,678)}(悲鳴)\N
+Dialogue: 0,0:01:21.99,0:01:27.67,Default,,0000,0000,0000,,{\pos(397,638)\c&H00ff00&}日本列島の南にある南海トラフ｡\N
+Dialogue: 0,0:01:27.67,0:01:33.00,Default,,0000,0000,0000,,{\pos(424,278)\c&H00ff00&}ここでは 陸側のプレートが\N
+Dialogue: 0,0:01:27.67,0:01:33.00,Default,,0000,0000,0000,,{\pos(450,358)\c&H00ff00&}海側のプレートに押され続け・\N
+Dialogue: 0,0:01:33.00,0:01:35.70,Default,,0000,0000,0000,,{\pos(664,278)\c&H00ff00&}ひずみを蓄積｡\N
+Dialogue: 0,0:01:40.34,0:01:44.22,Default,,0000,0000,0000,,{\pos(264,678)\c&H00ff00&}およそ100年から150年間隔で・\N
+Dialogue: 0,0:01:44.22,0:01:49.22,Default,,0000,0000,0000,,{\pos(984,558)\c&H00ff00&}繰り返し\N
+Dialogue: 0,0:01:44.22,0:01:49.22,Default,,0000,0000,0000,,{\pos(370,638)\c&H00ff00&}巨大地震を引き起こしてきました｡\N
+Dialogue: 0,0:02:04.04,0:02:31.20,Default,,0000,0000,0000,,{\pos(184,678)}・～\N
+Dialogue: 0,0:02:31.20,0:02:33.90,Default,,0000,0000,0000,,{\pos(344,438)\c&H00ff00&}南海トラフ巨大地震が…\N
+Dialogue: 0,0:02:41.34,0:02:46.68,Default,,0000,0000,0000,,{\pos(184,598)\c&H00ff00&}私たちは どのような危機に直面するのか｡\N
+Dialogue: 0,0:02:46.68,0:02:50.35,Default,,0000,0000,0000,,{\pos(424,678)\c&H00ff00&}国の想定では 最悪の場合・\N
+Dialogue: 0,0:02:50.35,0:02:55.65,Default,,0000,0000,0000,,{\pos(184,598)\c&H00ff00&}激しい揺れや大津波で被害を受けるのは\N
+Dialogue: 0,0:02:50.35,0:02:55.65,Default,,0000,0000,0000,,{\pos(210,678)\c&H00ff00&}30都府県｡\N
+Dialogue: 0,0:03:01.36,0:03:03.69,Default,,0000,0000,0000,,{\pos(397,678)\c&H00ff00&}しかし 専門家が・\N
+Dialogue: 0,0:03:03.69,0:03:08.97,Default,,0000,0000,0000,,{\pos(184,598)\c&H00ff00&}日本全体が 長期間にわたって\N
+Dialogue: 0,0:03:03.69,0:03:08.97,Default,,0000,0000,0000,,{\pos(210,678)\c&H00ff00&}大きなダメージを受けると危惧する・\N
+Dialogue: 0,0:03:08.97,0:03:11.67,Default,,0000,0000,0000,,{\pos(317,678)\c&H00ff00&}別のシナリオがあります｡\N
+Dialogue: 0,0:03:14.84,0:03:19.84,Default,,0000,0000,0000,,{\pos(237,598)\c&H00ff00&}南海トラフの半分だけが\N
