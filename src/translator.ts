@@ -46,7 +46,7 @@ const translate = async (
 ): Promise<AssDialog[]> => {
     const api = `https://api.openai.com/v1/chat/completions`;
     const prompt =
-        "把以下字幕翻译成中文，在结果的相应位置保留原字幕的特效标签，只翻译内容。特效标签的特征是用一对大括号{}包裹。你的结果只包含翻译后的结果。以下是原始字幕：";
+        "把以下字幕翻译成简体中文，在结果的相应位置保留原字幕的特效标签，只把内容翻译成简体中文。特效标签的特征是用一对大括号{}包裹。你的结果只包含翻译后的结果。以下是原始字幕：";
     const attributeArr = originDialogs.map((dialog) => dialog.attributes);
     const dialogTextArr = originDialogs.map((dialog) => dialog.dialogText);
     const response = await axios.post(
