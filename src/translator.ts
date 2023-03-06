@@ -101,8 +101,21 @@ export default class Translator {
     translate = async (file: string) => {
         const [header, dialogs] = readAssFile(file);
         const chunks = chunk<AssDialog>(dialogs, 10);
+        let retries = 5;
         for (let i = 0; i <= chunks.length - 1; i++) {
-            const translatedDialogs = await translate(chunks[i], this.apiKey);
+            let translatedDialogs: AssDialog[];
+            while (retries > 0) {
+                try {
+                    translatedDialogs = await translate(chunks[i], this.apiKey);
+                    break;
+                } catch (e) {
+                    retries -= 1;
+                    console.log(`Get translation failed, retry ${5 - retries}`);
+                }
+            }
+            if (!translatedDialogs) {
+                throw new Error("Cannot get translation from OpenAI.");
+            }
             await sleep(3200); // API Rate limit
             this.result.push(
                 ...translatedDialogs.map(

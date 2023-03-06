@@ -60,7 +60,7 @@ Erii.bind(
             .split("Dialogue:")[0];
         fs.writeFileSync(
             outputPath,
-            `${header}\n${translator.result.join("\n")}`
+            `${header}${translator.result.join("\n")}`
         );
         console.log(`All done, check your file at [${outputPath}]`);
     }
