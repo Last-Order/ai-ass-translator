@@ -51,7 +51,7 @@ Erii.bind(
         if (!options.openaiApiKey) {
             throw new Error("No OpenAI API key provided.");
         }
-        const translator = new Translator({ apiKey: options.openaiApiKey });
+        const translator = new Translator(options);
         await translator.translate(assFilePath);
         const outputPath = path.resolve(`${assFilePath}.translated.ass`);
         const header = fs
@@ -69,11 +69,27 @@ Erii.bind(
 Erii.addOption({
     name: ["openai-api-key"],
     command: "translate",
-    description: "Temporary file path",
+    description: "OpenAI API Key",
     argument: {
         name: "key",
-        description: "API Key of OpenAI service.",
+        description: "",
     },
+});
+
+Erii.addOption({
+    name: ["batch-size"],
+    command: "translate",
+    description: "Batch size of subtitle lines per request. Defaults to 10.",
+    argument: {
+        name: "size",
+        description: "",
+    },
+});
+
+Erii.addOption({
+    name: ["disable-rate-limit"],
+    command: "translate",
+    description: "Disable rate limit for OpenAI API",
 });
 
 Erii.default(() => {

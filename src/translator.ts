@@ -89,18 +89,34 @@ const translate = async (
     return translatedDialogs;
 };
 
+interface TranslatorOptions {
+    openaiApiKey: string;
+    disableRateLimit?: boolean;
+    batchSize?: number;
+}
+
 export default class Translator {
     apiKey = "";
 
+    disableRateLimit = false;
+
+    batchSize = 10;
+
     result = [];
 
-    constructor({ apiKey }: { apiKey: string }) {
-        this.apiKey = apiKey;
+    constructor({
+        openaiApiKey,
+        disableRateLimit = false,
+        batchSize = 10,
+    }: TranslatorOptions) {
+        this.apiKey = openaiApiKey;
+        this.disableRateLimit = disableRateLimit;
+        this.batchSize = batchSize;
     }
 
     translate = async (file: string) => {
         const [header, dialogs] = readAssFile(file);
-        const chunks = chunk<AssDialog>(dialogs, 10);
+        const chunks = chunk<AssDialog>(dialogs, this.batchSize);
         let retries = 5;
         for (let i = 0; i <= chunks.length - 1; i++) {
             let translatedDialogs: AssDialog[];
@@ -116,7 +132,9 @@ export default class Translator {
             if (!translatedDialogs) {
                 throw new Error("Cannot get translation from OpenAI.");
             }
-            await sleep(5000); // API Rate limit
+            if (!this.disableRateLimit) {
+                await sleep(5000); // API Rate limit
+            }
             this.result.push(
                 ...translatedDialogs.map(
                     (dialog) => `${dialog.attributes},${dialog.dialogText}`
