@@ -97,9 +97,9 @@ interface TranslatorOptions {
 }
 
 export default class Translator {
-    apiKey = "https://api.openai.com";
+    apiKey = "";
 
-    apiHost = "";
+    apiHost = "https://api.openai.com";
 
     disableRateLimit = false;
 
