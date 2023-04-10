@@ -1,6 +1,5 @@
 import axios from "axios";
 import { chunk } from "lodash";
-import * as path from "path";
 import * as fs from "fs";
 
 const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
@@ -42,9 +41,10 @@ const readAssFile = (filePath: string): [string, AssDialog[]] => {
 
 const translate = async (
     originDialogs: AssDialog[],
-    apiKey
+    apiKey,
+    apiHost
 ): Promise<AssDialog[]> => {
-    const api = `https://api.openai.com/v1/chat/completions`;
+    const api = `${apiHost}/v1/chat/completions`;
     const prompt =
         "把以下字幕翻译成简体中文，在结果的相应位置保留原字幕的特效标签，只把内容翻译成简体中文。特效标签的特征是用一对大括号{}包裹。你的结果只包含翻译后的结果。以下是原始字幕：";
     const attributeArr = originDialogs.map((dialog) => dialog.attributes);
@@ -91,12 +91,15 @@ const translate = async (
 
 interface TranslatorOptions {
     openaiApiKey: string;
+    openaiApiHost?: string;
     disableRateLimit?: boolean;
     batchSize?: number;
 }
 
 export default class Translator {
-    apiKey = "";
+    apiKey = "https://api.openai.com";
+
+    apiHost = "";
 
     disableRateLimit = false;
 
@@ -106,12 +109,17 @@ export default class Translator {
 
     constructor({
         openaiApiKey,
+        openaiApiHost,
         disableRateLimit = false,
         batchSize = 10,
     }: TranslatorOptions) {
         this.apiKey = openaiApiKey;
         this.disableRateLimit = disableRateLimit;
         this.batchSize = batchSize;
+
+        if (openaiApiHost) {
+            this.apiHost = openaiApiHost;
+        }
     }
 
     translate = async (file: string) => {
@@ -122,10 +130,15 @@ export default class Translator {
             let translatedDialogs: AssDialog[];
             while (retries > 0) {
                 try {
-                    translatedDialogs = await translate(chunks[i], this.apiKey);
+                    translatedDialogs = await translate(
+                        chunks[i],
+                        this.apiKey,
+                        this.apiHost
+                    );
                     break;
                 } catch (e) {
                     retries -= 1;
+                    retries === 0 && console.debug(e.message, e?.response?.data);
                     console.log(`Get translation failed, retry ${5 - retries}`);
                 }
             }

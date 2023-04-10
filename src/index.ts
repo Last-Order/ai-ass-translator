@@ -67,6 +67,16 @@ Erii.bind(
 );
 
 Erii.addOption({
+    name: ["openai-api-host"],
+    command: "translate",
+    description: "OpenAI API host",
+    argument: {
+        name: "host",
+        description: "",
+    },
+});
+
+Erii.addOption({
     name: ["openai-api-key"],
     command: "translate",
     description: "OpenAI API Key",
